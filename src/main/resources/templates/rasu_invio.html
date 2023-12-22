@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>R.A.S.U. - Invio Richiesta</title>
+    <link th:href="@{/css/bootstrap-italia.min.css}" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" th:href="@{/img/favicon.ico}">
+</head>
+<body>
+
+<div th:replace="fragments/header :: head"></div>
+
+<main>
+    <div class="container">
+        <div class="row mt-2">
+            <div class="col">
+                <h2>R.A.S.U. - Richiesta Accertamenti Sanitari Urgenti</h2>
+            </div>
+        </div>
+        <hr>
+        <div class="row mt-2">
+            <div class="col-md-6">
+                <div class="table-responsive">
+                    <table class="table">
+                        <tr class="c-line primary-bg-c5">
+                            <th scope="row">Cognome</th>
+                            <td th:text="${episodio.codiceFiscale.cognome}"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Nome</th>
+                            <td th:text="${episodio.codiceFiscale.nome}"></td>
+                        </tr>
+                        <tr class="c-line primary-bg-c5">
+                            <th scope="row">Data di Nascita</th>
+                            <td th:text="${episodio.codiceFiscale.dataDiNascita}"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Codice Fiscale</th>
+                            <td th:text="${episodio.codiceFiscale.codiceFiscale}"></td>
+                        </tr>
+                        <tr class="c-line primary-bg-c5">
+                            <th scope="row">Data Evento</th>
+                            <td th:text="${episodio.dataOraInizioEpisodio}"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Luogo Incidente</th>
+                            <td th:text="${episodio.luogoIncidente}"></td>
+                        </tr>
+                        <tr class="c-line primary-bg-c5">
+                            <th scope="row">Causa Incidente</th>
+                            <td th:text="${episodio.causaIncidente}"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Modalita&grave; di Arrivo</th>
+                            <td th:text="${episodio.modalitaArrivo}"></td>
+                        </tr>
+                        <tr class="c-line primary-bg-c5">
+                            <th scope="row">Modalita&grave; di Accesso</th>
+                            <td th:text="${episodio.modalitaAccesso}"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-md-6">
+                <h4>Selezionare il tipo di richiesta...</h4>
+            </div>
+        </div>
+    </div>
+</main>
+
+<div th:replace="fragments/footer :: footer"></div>
+
+<script th:src="@{/js/bootstrap-italia.bundle.min.js}"></script>
+<script th:src="@{/js/jquery.min.js}"></script>
+<script>
+    $(document).ready(function(){$("#searchInput").on("keyup", function() {let value = $(this).val().toLowerCase();$("#myTable tr").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)});});});
+</script>
+</body>
+</html>

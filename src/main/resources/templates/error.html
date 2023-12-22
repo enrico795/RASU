@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title th:text="${message}"></title>
+    <link th:href="@{/css/bootstrap-italia.min.css}" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" th:href="@{/img/favicon.ico}">
+</head>
+<body>
+
+    <div class="container-fluid">
+        <header class="d-flex flex-wrap justify-content-between py-3 mb-4 border-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 text-start">
+                        <a th:href="@{/}">
+                            <img th:src="@{img/logo.png}" height="64px" alt="Logo Comune di Verona" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <table class="table">
+                        <tr><td>Error Message</td><td th:text="${message}"></td></tr>
+                        <tr><td>Status Code</td><td th:text="${status}"></td></tr>
+                        <tr><td>Exception</td><td th:text="${exception}"></td></tr>
+                        <tr><td>Stacktrace</td><td><pre th:text="${trace}"></pre></td></tr>
+                        <tr><td>Binding Errors</td><td th:text="${errors}"></td></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer Footer">
+        <div class="footer-main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-xs-12">
+                        <h4>Contatti</h4>
+                        <br>
+                        <h6>Direzione Informatica - Comune di Verona</h6>
+                        Email: <a href="mailto:informatica@comune.verona.it">informatica@comune.verona.it</a>
+                    </div>
+                </div>
+                <div class="row Footer-links">
+                    <div class="col-md-6 col-xs-12">
+                        <div class="link-list-wrapper">
+                            <ul class="list-inline footer-links link-list clearfix">
+                                <li class="list-inline-item">
+                                    <a href="https://www.comune.verona.it/nqcontent.cfm?a_id=532">Privacy e Cookie</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <p class="text-end">Tutti i diritti sui contenuti sono riservati al Comune di Verona ©2023</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script th:src="@{/js/bootstrap-italia.bundle.min.js}"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+footer {
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, HelveticaNeue-Light, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
+    font-variant-ligatures: common-ligatures;
+}
+.footer, .footer-main {
+    background-color: #30373d !important
+}
+.Footer {
+    padding-bottom: 4rem !important;
+    padding-top: 4rem !important;
+    color: #fff !important;
+}
+.Footer a {
+    color: #65dcdf;
+    text-decoration: none;
+}
+.Footer a:hover {
+    text-decoration: underline;
+}
+.Footer-links {
+    padding-top: 0.8em !important;
+    margin-top: 2.4rem !important;
+    border-top: 0.1rem solid currentColor !important;
+    width: 100% !important;
+    height: auto !important;
+}
+
+.fixed-height {
+    max-height: 880px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}

@@ -1,0 +1,38 @@
+package it.comune.verona.rasu.domain;
+
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
+
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+
+@Getter
+@Setter
+@Table(name = "rasu_role")
+@Entity
+public class Role implements Serializable {
+
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(generator = "rasu_role_id_seq_gen")
+    @GenericGenerator(name = "rasu_role_id_seq_gen", type = org.hibernate.id.enhanced.SequenceStyleGenerator.class,
+            parameters = {
+                    @org.hibernate.annotations.Parameter(name = "sequence_name", value = "rasu_role_id_seq"),
+                    @org.hibernate.annotations.Parameter(name = "initial_value", value = "1"),
+                    @org.hibernate.annotations.Parameter(name = "increment_size", value = "1")
+            }
+    )
+    protected Integer id;
+
+    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    @JoinTable(name = "rasu_role_authority",
+            joinColumns = @JoinColumn(name = "role_id"),
+            inverseJoinColumns = @JoinColumn(name = "authority_id"))
+    private Set<Authority> authorities = new HashSet<>();
+
+    private String name;
+
+}

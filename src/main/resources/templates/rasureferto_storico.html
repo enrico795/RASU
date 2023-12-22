@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>R.A.S.U. - Referto</title>
+  <link th:href="@{/css/bootstrap-italia.min.css}" rel="stylesheet">
+  <link th:href="@{/css/style.css}" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" th:href="@{/img/favicon.ico}">
+</head>
+<body>
+
+  <div th:replace="fragments/header :: head"></div>
+  <main>
+    <div class="container-fluid">
+      <div class="row mt-4">
+        <div class="col-md-6 mx-auto">
+          <table class="table" id="myTable1">
+            <tbody>
+            <tr>
+              <th scope="row">Cognome</th>
+              <td th:text="${referto.cvrrasu.cognome}"></td>
+            </tr>
+            <tr>
+              <th scope="row">Nome</th>
+              <td th:text="${referto.cvrrasu.nome}"></td>
+            </tr>
+            <tr>
+              <th scope="row">Data nascita</th>
+              <td th:text="${referto.cvrrasu.data_nascita}"></td>
+            </tr>
+            <tr>
+              <th scope="row">Codice fiscale</th>
+              <td th:text="${referto.cvrrasu.codice_fiscale}"></td>
+            </tr>
+            <tr>
+              <th scope="row">PS descrizione</th>
+              <td th:text="${referto.cvrrasu.ps_desc}"></td>
+            </tr>
+            <tr>
+              <th scope="row">Presidio</th>
+              <td th:text="${referto.cvrrasu.presidio}"></td>
+            </tr>
+            <tr>
+              <th scope="row">Scheda PS</th>
+              <td th:text="${referto.cvrrasu.schedaps}"></td>
+            </tr>
+            <tr>
+              <th scope="row">Data evento</th>
+              <td th:text="${referto.cvrrasu.data_evento}"></td>
+            </tr>
+            <tr>
+              <th scope="row">Luogo incidente</th>
+              <td th:text="${referto.cvrrasu.luogo_incidente}"></td>
+            </tr>
+            <tr>
+              <th scope="row">Comune incidente</th>
+              <td th:text="${referto.cvrrasu.comune_incidente}"></td>
+            </tr>
+            <tr>
+              <th scope="row">Causa incidente</th>
+              <td th:text="${referto.cvrrasu.causa_incidente}"></td>
+            </tr>
+            <tr>
+              <th scope="row">Modalita&grave; arrivo</th>
+              <td th:text="${referto.cvrrasu.modalita_arrivo}"></td>
+            </tr>
+            <tr>
+              <th scope="row">Modalita&grave; accesso</th>
+              <td th:text="${referto.cvrrasu.modalita_accesso}"></td>
+            </tr>
+            <tr class="bg-success text-white">
+              <th scope="row">R.A.S.U. protocollo</th>
+              <td th:text="${referto.cvrrasu.rasu_protocollo}"></td>
+            </tr>
+            <tr class="bg-success text-white">
+              <th scope="row">R.A.S.U. inserimento</th>
+              <td th:text="${referto.cvrrasu.rasu_datains}"></td>
+            </tr>
+            <tr class="bg-success text-white">
+              <th scope="row">R.A.S.U. data invio</th>
+              <td th:text="${referto.cvrrasu.rasu_datainvio}"></td>
+            </tr>
+            <tr class="bg-success text-white">
+              <th scope="row">R.A.S.U. note</th>
+              <td th:text="${referto.cvrrasu.rasu_note}"></td>
+            </tr>
+            <tr class="bg-success text-white">
+              <th scope="row">PM IP</th>
+              <td th:text="${referto.cvrrasu.pm_ip}"></td>
+            </tr>
+            <tr class="bg-success text-white">
+              <th scope="row">PM user</th>
+              <td th:text="${referto.cvrrasu.pm_user}"></td>
+            </tr>
+            <tr class="bg-success text-white">
+              <th scope="row">PM cognome</th>
+              <td th:text="${referto.cvrrasu.pm_cognome}"></td>
+            </tr>
+            <tr class="bg-success text-white">
+              <th scope="row">PM nome</th>
+              <td th:text="${referto.cvrrasu.pm_nome}"></td>
+            </tr>
+            <tr class="bg-success text-white">
+              <th scope="row">PMVA cognome</th>
+              <td th:text="${referto.cvrrasu.pmva_cognome}"></td>
+            </tr>
+            <tr class="bg-success text-white">
+              <th scope="row">PMVA nome</th>
+              <td th:text="${referto.cvrrasu.pmva_nome}"></td>
+            </tr>
+            <tr class="bg-success text-white">
+              <th scope="row">PMVA data nascita</th>
+              <td th:text="${referto.cvrrasu.pmva_datanascita}"></td>
+            </tr>
+            <tr class="bg-success text-white">
+              <th scope="row">PMVA residenza</th>
+              <td th:text="${referto.cvrrasu.pmva_residenza}"></td>
+            </tr>
+            <tr class="bg-success text-white">
+              <th scope="row">PMVA luogo incidente</th>
+              <td th:text="${referto.cvrrasu.pmva_luogoincidente}"></td>
+            </tr>
+            </tbody>
+          </table>
+          <p>PMVA - Variazioni Anagrafiche segnalate</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div th:replace="fragments/footer :: footer"></div>
+
+  <script th:src="@{/js/bootstrap-italia.bundle.min.js}"></script>
+  <script th:src="@{/js/jquery.min.js}"></script>
+  <script>
+        $(document).ready(function(){$("#searchInput").on("keyup", function() {let value = $(this).val().toLowerCase();$("#myTable tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)});});});
+    </script>
+</body>
+</html>
+

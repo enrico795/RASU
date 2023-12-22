@@ -1,0 +1,50 @@
+server:
+  port: 8088
+
+logging:
+  file:
+    path: .
+    name: rasu.log
+  level:
+    root: INFO
+    it.bluetigers.authorizationserver: DEBUG
+    org.springframework.jdbc: ERROR
+    org.springframework.security: TRACE
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          netiq:
+            provider: netiq
+            client-name: Credenziali Comune di Verona
+            client-id: 65626bb5-e368-4ff9-8c58-38203731258a
+            client-secret: e2sT5D0i2Nx32U5jp5BtX1t-xxhdAfWk3jk8_yiiXoWBUgpWVVRwJF2pfDqr-xzzpUbDWnTjXb3yEuBrf_Nynw
+            scope: openid, profile, email
+            redirect-uri: http://localhost:8088/login/oauth2/code/netiq
+        provider:
+          netiq:
+            issuer-uri: https://isq.comune.verona.it/nidp/oauth/nam
+            user-info-uri: https://isq.comune.verona.it/nidp/oauth/nam/userinfo
+  datasource:
+    url: jdbc:postgresql://s2k19-8:5432/rasu
+    username: rasu
+    password: DoX1$06!Z[?eDq
+    driver-class-name: org.postgresql.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+
+    hikari:
+      connection-test-query: "SELECT 1"
+      connection-timeout: 30000
+      validation-timeout: 30000
+      maximum-pool-size: 10
+      initialization-fail-timeout: 1
+      leak-detection-threshold: 0
+      auto-commit: off
+
+  flyway:
+    url: jdbc:postgresql://s2k19-8:5432/rasu
+    user: rasu
+    password: DoX1$06!Z[?eDq
+

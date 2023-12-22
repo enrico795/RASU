@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>R.A.S.U. - Home</title>
+    <link th:href="@{/css/bootstrap-italia.min.css}" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" th:href="@{/img/favicon.ico}">
+</head>
+<body>
+
+    <div th:replace="fragments/header :: head"></div>
+
+    <main>
+        <div class="container">
+            <div class="row mt-2">
+                <div class="col text-center">
+                    <p><b>ATTENZIONE: </b>La richiesta RASU è possibile solo se il paziente è <b>presente in elenco nel momento dell'invio della richiesta</b>.
+                        Quindi anche se l'operazione RASU è già stata iniziata, può venire annullata segnalando: "Paziente non più disponibile!" nel caso il paziente sia stato dimesso e quindi non più presente in elenco.</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col">
+                    <h2>Tipologie di richieste disponibili</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <td>Art. 186 CdS (Alcol)</td>
+                            <td>La Polizia Municipale di Verona richiede che siano effettuati accertamenti sanitari urgenti sui liquidi ematici dell'interessato volti ad accertare la presenza di sostanze alcoliche (art.186CdS), o dar conto dell'avvenuto rifiuto da parte dell'interessato.</td>
+                        </tr>
+                        <tr>
+                            <td>Art. 187 CdS (Droghe e Farmaci)</td>
+                            <td>La Polizia Municipale di Verona richiede che siano effettuati accertamenti sanitari urgenti sui liquidi ematici dell'interessato volti ad accertare la presenza di sostanze stupefacenti o psicotrope (art.187CdS), o dar conto dell'avvenuto rifiuto da parte dell'interessato.</td>
+                        </tr>
+                        <tr>
+                            <td>Art. 186 + 187 Cds</td>
+                            <td>La Polizia Municipale di Verona richiede che siano effettuati accertamenti sanitari urgenti sui liquidi ematici dell'interessato volti ad accertare la presenza di sostanze alcoliche, stupefacenti o psicotrope (art.186+187CdS), o dar conto dell'avvenuto rifiuto da parte dell'interessato.</td>
+                        </tr>
+                        <tr>
+                            <td>Art. 354 CPP (Pedone)</td>
+                            <td>La Polizia Municipale di Verona richiede che siano effettuati accertamenti sanitari urgenti sui liquidi ematici dell'interessato volti ad accertare la presenza di sostanze alcoliche, stupefacenti o psicotrope (art.354CPP), o dar conto dell'avvenuto rifiuto da parte dell'interessato.</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col">
+                    <h4 class="text-primary">R.A.S.U.</h4>
+                    <p class="lead">Richiesta Accertamenti Sanitari Urgenti</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col">
+                    <p>In questa pagina viene visualizzato l'elenco dei pazienti attualmente ricoverari al Pronto Soccorso (PS), ai quali e' possibile associare una richiesta RASU, la presenza nell'ultima colonna della "Data Invio" indica che la richiesa RASU e' già stata effettuata.</p>
+                    <p>Nel caso la Data Invio non sia presente, premendo il tasto [Dettagli] possiamo iniziare la procedura di richiesta:</p>
+                    <div class="it-list-wrapper">
+                        <ul class="it-list">
+                            <li>
+                                <div class="list-item">
+                                    <div class="it-right-zone">
+                                        <span class="text">1. Selezionare il tipo di richiesta tra quelli disponibili: art.186Cds(alcol), art.187Cds(droghe e farmaci), ...</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="list-item">
+                                    <div class="it-right-zone">
+                                        <span class="text">2. Aggiungere eventuali variazioni anagrafiche o note, premere poi il tasto [Anteprima Richiesta] per visualizzare l'anteprima dell'invio.</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="list-item">
+                                    <div class="it-right-zone">
+                                        <span class="text">3. Verificare nell'Anteprima i propri dati e la correttezzza del messaggio che verra' inviato all'Azienda Ospedaliera, premere infine il tasto [Invio Richiesta] per inviare la richiesta.</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="list-item">
+                                    <div class="it-right-zone">
+                                        <span class="text">4. Come conferma dell'avvenuto invio, viene visualizzata la ricevuta da stampare e firmare, premere il tasto [Stampa] per eseguire la stampa della ricevuta.</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="list-item">
+                                    <div class="it-right-zone">
+                                        <span class="text">5. Premere il tasto [Archivio] per uscire dalla stampa ricevuta ed anche visualizzare i dettagli del nostro invio.</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <p class="mt-4">Nel caso sia presente la Data Invio , premendo il tasto [Dettagli] possiamo visualizzare la richiesta già inviata, ed eventualmente aggiungere un successivo messaggio che si accoda al precedente:</p>
+                    <div class="it-list-wrapper">
+                        <ul class="it-list">
+                            <li>
+                                <div class="list-item">
+                                    <div class="it-right-zone">
+                                        <span class="text">1. Inserire il messaggio da accodare nel textbox, come testo libero.</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="list-item">
+                                    <div class="it-right-zone">
+                                        <span class="text">2. Premere il tasto [Anteprima Richiesta] per visualizzare l'anteprima dell'invio.</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="list-item">
+                                    <div class="it-right-zone">
+                                        <span class="text">3. Verificare la correttezzza del messaggio che verra' accodato alla richiesta.</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="list-item">
+                                    <div class="it-right-zone">
+                                        <span class="text">4. Premere il tasto [Invio Richiesta] per inviare la richiesta.</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="list-item">
+                                    <div class="it-right-zone">
+                                        <span class="text">5. Come conferma dell'avvenuto invio, viene visualizzata la ricevuta da stampare e firmare.</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <p>Nel caso il PazientePS non sia presente in elenco e solo in questo caso, tramite il tasto: <span class="text-primary">Inserisci Richiesta RASU manuale</span>si può procedere con l'inserimento manuale dei dati PazientePS, con creazione di una richiesta RASU che dovrà essere poi inviata manualmente.<br>
+                        ATTENZIONE: In questo caso viene stampata solo la richiesta RASU, non la ricevuta dell'avvenuto invio.</p>
+                    <div class="it-list-wrapper">
+                        <ul class="it-list">
+                            <li>
+                                <div class="list-item">
+                                    <div class="it-right-zone">
+                                        <span class="text">1. Compilare almeno i dati obbligatori: Cognome, Nome, data Nascita, Data Ora evento.</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="list-item">
+                                    <div class="it-right-zone">
+                                        <span class="text">2. Se necessario modificare il valore di Ospedale di ricovero.</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="list-item">
+                                    <div class="it-right-zone">
+                                        <span class="text">3. Selezionare il tipo di richiesta.</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="list-item">
+                                    <div class="it-right-zone">
+                                        <span class="text">4. Tramite il tasto [Anteprima Richiesta] verificare i dati inseriti.</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="list-item">
+                                    <div class="it-right-zone">
+                                        <span class="text">5. Tramite il tasto [Salva Richiesta] la richiesta viene definitivamente salvata.</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="list-item">
+                                    <div class="it-right-zone">
+                                        <span class="text">6. Viene infine visualizzata la Richiesta RASU con il protocollo assegnato, questa dovrà essere stampata, firmata, e poi inviata all'Azienda Ospedaliera tramite FAX, email o altro mezzo.</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col">
+                    <h4 class="text-primary">Archivio</h4>
+                    <p class="lead">Archivio richieste R.A.S.U. inviate</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col">
+                    <p>In questa pagina viene visualizzato in ordine decrescente di Protocollo RASU l'elenco delle richieste RASU effettuate, la prima visualizzata è l'ultima richiesta fatta.</p>
+                    <div class="it-list-wrapper">
+                        <ul class="it-list">
+                            <li>
+                                <div class="list-item">
+                                    <div class="it-right-zone">
+                                        <span class="text">Premere il tasto [Dettagli] per visualizzare il dettaglio della richiesta RASU, e se necessario ristampare la ricevuta da firmare.</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="list-item">
+                                    <div class="it-right-zone">
+                                        <span class="text">Per eseguire ricerche, inserire nei textbox i corretti criteri e poi premere il tasto [Aggiorna ricerca]</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col">
+                    <h4 class="text-primary">Referti</h4>
+                    <p class="lead">Gestione referti</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col">
+                    <p>NOTA: Per inserire un nuovo referto trovare in Archivio la specifica Richiesta Rasu, premere il tasto [Dettagli] e poi il tasto [Inserisci Referto] (nel caso esista già il referto, il tasto diventa [Modifica Referto]).</p>
+                    <p>In questa pagina viene visualizzato in ordine decrescente di Protocollo RASU l'elenco dei referti RASU inseriti.</p>
+                    <div class="it-list-wrapper">
+                        <ul class="it-list">
+                            <li>
+                                <div class="list-item">
+                                    <div class="it-right-zone">
+                                        <span class="text">Per eseguire ricerche, inserire nei textbox i corretti criteri e poi premere il tasto [Aggiorna ricerca].</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="list-item">
+                                    <div class="it-right-zone">
+                                        <span class="text">Premere il tasto [Dettagli] per visualizzare il dettaglio del referto, da notare che viene visualizzato anche lo "Storico Operazioni".</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <p>In Dettaglio referto vengono eseguite tutte le operazioni sul Referto, per evitare errori viene sempre visualizzata anche la relativa richiesta R.A.S.U.</p>
+                    <div class="it-list-wrapper">
+                        <ul class="it-list">
+                            <li>
+                                <div class="list-item">
+                                    <div class="it-right-zone">
+                                        <span class="text">Premere il tasto [Annulla] per ritornare all'elenco referti.</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="list-item">
+                                    <div class="it-right-zone">
+                                        <span class="text">Se abilitati all'inserimento/modifica dei referti sarà disponibile anche il tasto [Modifica Referto] che permette di entrare in modifica referto.</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="list-item">
+                                    <div class="it-right-zone">
+                                        <span class="text">In Modifica referto è possibile modificare i valori da confermare poi con il tasto [salva modifiche], ogni modifica effettuata viene registrata nello "Storico Operazioni".</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div th:replace="fragments/footer :: footer"></div>
+
+    <script th:src="@{/js/bootstrap-italia.bundle.min.js}"></script>
+    <script th:src="@{/js/jquery.min.js}"></script>
+</body>
+</html>

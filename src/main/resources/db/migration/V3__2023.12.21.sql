@@ -1,0 +1,1 @@
+ALTER TABLE rasu_episodi ALTER COLUMN idepisodio TYPE varchar(15);
